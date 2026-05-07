@@ -6,16 +6,17 @@ RDK = robolink.Robolink()
 CajaBase = RDK.Item('CajaAbierta')
 SistRefCinta = RDK.Item('FPaq')
 
+# Variables
 DESPLAZAMIENTO_MM = 700
 TIEMPO_TOTAL = 1.5
 PASOS = 60
 
-# 🔥 Espera de 36 segundos ANTES de iniciar el ciclo
+# Espera de 5 segundos para que termine de colocar el paquete
 time.sleep(5)
 
 if CajaBase.Valid() and SistRefCinta.Valid():
 
-    # 1. Crear copia
+    # Crear copia
     CajaBase.Copy()
     Caja = RDK.Paste(SistRefCinta)
 
@@ -26,7 +27,7 @@ if CajaBase.Valid() and SistRefCinta.Valid():
 
     pose_ini = Caja.Pose()
 
-    # 2. Movimiento interpolado
+    # Movimiento interpolado
     for i in range(PASOS):
         frac = (i + 1) / PASOS
         dx = DESPLAZAMIENTO_MM * frac
@@ -36,7 +37,7 @@ if CajaBase.Valid() and SistRefCinta.Valid():
 
         time.sleep(TIEMPO_TOTAL / PASOS)
 
-    # 3. Borrar la caja
+    # Borrar la caja
     Caja.Delete()
 
 
