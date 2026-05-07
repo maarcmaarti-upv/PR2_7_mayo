@@ -1,9 +1,12 @@
-# PR2_entrega_7_mayo
+# PR2 Entrega 7 de mayo
+
+Realizado por: Marc Martí, Daniel Dunca, Alejandro Aznar y Ian Francisco García.
 
 Función: Encajado y paletizado de paquetes.
 
 Hemos establecido la conexión vía MQTT entre 2 robots ABB antropomórficos. Uno encargado de meter 6 paquetes en una caja, y el otro encargado de paletizar las cajas una vez estas sean transportadas y cerradas.
 
+# Método de ejecución
 Para ejecutar correctamente el código, se debe ejecutar el código de Arduino con la esp32s3 conectada, abrir el layout de RoboDK y dejar abiertos los scripts de MQTTListener y RobotController. Y por último ejecutar el código de MQTTListener.
 
 El cableado de la esp32s3 es de dos botones, los dos conectados a GND y el boton que simula al sensor de presencia de los paquetes conectado por el otro lado al pin 5 y el boton de las cajas al pin 4.
