@@ -1,3 +1,6 @@
+# Este script de python introduce en la DB las cajas y los palets finalizados escuchando por MQTT.
+# Este código es de la parte de la entrega que pertenece a GDI.
+
 import psycopg
 import paho.mqtt.client as mqtt
 import uuid
@@ -88,7 +91,7 @@ def on_message(client, userdata, msg):
     # Paquetes → Cajas
     if topic == TOPIC_PAQ:
         contador_paq += 1
-
+    # Una vez se introducen 6 paquetes se crea una fila caja en la BD
         if contador_paq >= 6:
             crear_caja()
             contador_paq = 0
@@ -96,7 +99,7 @@ def on_message(client, userdata, msg):
     # Cajas → Pallets
     elif topic == TOPIC_CAJA:
         contador_caja += 1
-
+     # Una vez se paletizan 12 cajas se crea una fila pallet en la BD
         if contador_caja >= 12:
             crear_pallet()
             contador_caja = 0
