@@ -1,5 +1,8 @@
 from robodk import robolink
 
+# Este programa resetea todos los elementos creados o movidos a su pos inicial
+# Hay algunos elementos que no se encuentran en este layout, pero funciona igualmente
+
 RDK = robolink.Robolink()
 
 programas = RDK.ItemList(robolink.ITEM_TYPE_PROGRAM)
