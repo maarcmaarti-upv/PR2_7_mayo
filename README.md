@@ -12,4 +12,11 @@ Con todo esto, una vez pulsado el botón de los paquetes se inicia el programa d
 
 En el github también se encuentran fotos tanto del layout con vista cenital cómo de el esquema eléctrico del circuito, aunque en el esquema se use un arduino UNO el cableado debe ser con la esp32s3 ya que el pinout no es igual.
 
+# Parte de GDI
+
 Además, la parte de la entrega de GDI se encuentra en la carpeta codigos_gdi, y para que funcione se debe de crear la BD con los archivos .sql cómo hemos aprendido en las prácticas, luego ejecutar el programa de python mientras ejecutas de la forma anteriormente explicada los otros programas de RDK y Arduino.
+
+# Parte de PRA
+
+En el script de python de RoboDK, llamado P&P_CajaCerrada.py, se usa Divide y Vencerás para obtener las diferentes posiciones de las cajas en el palet.
+Esto cumple la parte de la entrega sobre la asignatura de PRA.
