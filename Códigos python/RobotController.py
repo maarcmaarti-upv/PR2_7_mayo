@@ -12,9 +12,7 @@ def handle_message(mqttc, topic, payload):
 
     payload = payload.strip().lower()
 
-    # -------------------------
-    # EVENTO PAQUETE
-    # -------------------------
+    # Cuando recibe en el topic "pr2/sahuquillers/paq" -> "paquete"
     if topic == "pr2/sahuquillers/paq" and payload == "paquete":
 
         contador_paq_robot += 1
@@ -22,22 +20,17 @@ def handle_message(mqttc, topic, payload):
         ejecutar_pp_paq()
 
         # Cada 6 paquetes ejecuta cajas
-        if contador_paq_robot == 2:
+        if contador_paq_robot == 6:
             ejecutar_cajas()
             contador_paq_robot = 0
 
-    # -------------------------
-    # EVENTO CAJA
-    # -------------------------
+    # Cuando recibe en el topic "pr2/sahuquillers/caja" -> "caja"
     elif topic == "pr2/sahuquillers/caja" and payload == "caja":
         print("→ Evento caja recibido")
         ejecutar_paletizado()
 
 
-# -------------------------
-# PROGRAMAS ROBO DK
-# -------------------------
-
+# Programas de RoboDK
 def ejecutar_pp_paq():
     programa = RDK.Item("P&P_Paq", robolink.ITEM_TYPE_PROGRAM)
 
