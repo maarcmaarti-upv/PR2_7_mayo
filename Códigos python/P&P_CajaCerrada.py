@@ -6,6 +6,7 @@ RDK = robolink.Robolink()
 
 robot = RDK.Item('ABBPallet', robolink.ITEM_TYPE_ROBOT)
 
+# Targets
 target_Home1 = RDK.Item('Home1', robolink.ITEM_TYPE_TARGET)
 target_Home2 = RDK.Item('Home2', robolink.ITEM_TYPE_TARGET)
 target_PickCC = RDK.Item('PickCC', robolink.ITEM_TYPE_TARGET)
@@ -18,7 +19,8 @@ VentosaPallet = RDK.Item('ventosa_pallet', robolink.ITEM_TYPE_TOOL)
 
 robot.setPoseTool(VentosaPallet)
 
-COLS = 4
+# Variables
+ACOLS = 4
 FILAS = 3
 DISTX = -310
 DISTY = -260
@@ -27,6 +29,7 @@ TOTAL_POS = COLS * FILAS
 
 FILE_INDEX = "paletizado_index.txt"
 
+# Añade num de cajas a .txt
 if os.path.exists(FILE_INDEX):
     with open(FILE_INDEX, "r") as f:
         index = int(f.read().strip())
@@ -39,6 +42,7 @@ if index >= TOTAL_POS:
 col = index % COLS
 fila = index // COLS
 
+# Movimientos
 base_pre = target_Pre_Place.Pose()
 base_place = target_PlaceCC.Pose()
 
