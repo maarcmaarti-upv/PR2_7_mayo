@@ -20,7 +20,7 @@ VentosaPallet = RDK.Item('ventosa_pallet', robolink.ITEM_TYPE_TOOL)
 robot.setPoseTool(VentosaPallet)
 
 # Variables
-ACOLS = 4
+COLS = 4
 FILAS = 3
 DISTX = -310
 DISTY = -260
