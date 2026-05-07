@@ -1,3 +1,4 @@
+--Este código crea las tablas para la BD, esta es la parte de la entrega que forma parte de la asignatura de GDI
 
 --Nuevo esquema
 
