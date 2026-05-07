@@ -1,26 +1,19 @@
--- ============================================
--- LIMPIEZA OPCIONAL (comenta si no quieres borrar datos)
--- ============================================
--- DROP SCHEMA IF EXISTS pimientos CASCADE;
 
--- ============================================
--- NUEVO ESQUEMA
--- ============================================
+--Nuevo esquema
+
 CREATE SCHEMA IF NOT EXISTS pimientos;
 SET search_path TO pimientos;
 
--- ============================================
--- PROVEEDOR
--- ============================================
+-- Proveedor
+
 CREATE TABLE IF NOT EXISTS proveedor (
     nombre      VARCHAR(150) PRIMARY KEY,
     direccion   VARCHAR(250) NOT NULL,
     telefono    INTEGER NOT NULL
 );
 
--- ============================================
--- ALBARAN_PROVEEDOR
--- ============================================
+-- Albaran_Proveedor
+
 CREATE TABLE IF NOT EXISTS albaran_proveedor (
     nombre      VARCHAR(150) NOT NULL,
     albaran     VARCHAR(50) NOT NULL,
@@ -34,19 +27,17 @@ CREATE TABLE IF NOT EXISTS albaran_proveedor (
         ON UPDATE CASCADE
         ON DELETE CASCADE
 );
+=
+-- Cliente
 
--- ============================================
--- CLIENTE
--- ============================================
 CREATE TABLE IF NOT EXISTS cliente (
     nombre      VARCHAR(150) PRIMARY KEY,
     direccion   VARCHAR(250) NOT NULL,
     telefono    INTEGER NOT NULL
 );
 
--- ============================================
--- ALBARAN_CLIENTE
--- ============================================
+-- Albaran_Cliente
+
 CREATE TABLE IF NOT EXISTS albaran_cliente (
     nombre      VARCHAR(150) NOT NULL,
     albaran     VARCHAR(50) NOT NULL,
@@ -61,18 +52,16 @@ CREATE TABLE IF NOT EXISTS albaran_cliente (
         ON DELETE CASCADE
 );
 
--- ============================================
--- PALLET
--- ============================================
+-- Pallet
+
 CREATE TABLE IF NOT EXISTS pallet (
     codigo      VARCHAR(50) PRIMARY KEY,
     tamano      NUMERIC(10,2) NOT NULL,
     material    VARCHAR(100) NOT NULL
 );
 
--- ============================================
--- CAJA
--- ============================================
+-- Caja
+
 CREATE TABLE IF NOT EXISTS caja (
     codigo          VARCHAR(50) PRIMARY KEY,
     tamano          NUMERIC(10,2) NOT NULL,
@@ -86,9 +75,8 @@ CREATE TABLE IF NOT EXISTS caja (
         ON DELETE RESTRICT
 );
 
--- ============================================
--- PAQUETE
--- ============================================
+-- Paquete
+
 CREATE TABLE IF NOT EXISTS paquete (
     codigo        VARCHAR(50) PRIMARY KEY,
     tamano        NUMERIC(10,2) NOT NULL,
@@ -102,9 +90,8 @@ CREATE TABLE IF NOT EXISTS paquete (
         ON DELETE RESTRICT
 );
 
--- ============================================
--- LOTE_PIMIENTOS
--- ============================================
+-- Lote_Pimientos
+
 CREATE TABLE IF NOT EXISTS lote_pimientos (
     numero           VARCHAR(50) PRIMARY KEY,
     color            VARCHAR(50) NOT NULL,
@@ -120,9 +107,8 @@ CREATE TABLE IF NOT EXISTS lote_pimientos (
         ON DELETE RESTRICT
 );
 
--- ============================================
--- VENDEN
--- ============================================
+-- Venden
+
 CREATE TABLE IF NOT EXISTS venden (
     proveedor    VARCHAR(150) NOT NULL,
     lote         VARCHAR(50) NOT NULL,
@@ -146,9 +132,8 @@ CREATE TABLE IF NOT EXISTS venden (
         ON DELETE CASCADE
 );
 
--- ============================================
--- COMPRADO
--- ============================================
+-- Comprado
+
 CREATE TABLE IF NOT EXISTS comprado (
     cliente      VARCHAR(150) NOT NULL,
     pallet       VARCHAR(50) NOT NULL,
