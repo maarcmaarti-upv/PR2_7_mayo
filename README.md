@@ -9,3 +9,5 @@ Para ejecutar correctamente el código, se debe ejecutar el código de Arduino c
 El cableado de la esp32s3 es de dos botones, los dos conectados a GND y el boton que simula al sensor de presencia de los paquetes conectado por el otro lado al pin 4 y el boton de las cajas al pin 5.
 
 Con todo esto, una vez pulsado el botón de los paquetes se inicia el programa de P&P_Paq que mueve el paquete y es introducido en la caja. Una vez se han introducido 6 paquetes, se inicia la cinta de la caja, entra en la cerradora de cajas y esta se cierra .Una vez llega al final de la cinta, se pulsa el botón de las cajas y se paletiza la caja.
+
+En el github también se encuentran fotos tanto del layout con vista cenital cómo de el esquema eléctrico del circuito.
