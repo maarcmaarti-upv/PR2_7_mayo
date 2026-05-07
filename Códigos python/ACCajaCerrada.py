@@ -7,20 +7,21 @@ RDK = robolink.Robolink()
 CajaBase = RDK.Item('CajaCerrada')
 SistRefCinta = RDK.Item('CCBase')
 
+# Variables
 DESPLAZAMIENTO_MM = 910
-TIEMPO_TOTAL = 1.5       # segundos
-PASOS = 60               # más pasos = más fluido
+TIEMPO_TOTAL = 1.5
+PASOS = 60
 
 if CajaBase.Valid() and SistRefCinta.Valid():
 
-    # 1. Crear copia
+    # Crear copia
     CajaBase.Copy()
     Caja = RDK.Paste(SistRefCinta)
     Caja.setName('Caja_Movil_2')
 
     pose_ini = Caja.Pose()
 
-    # 2. Movimiento interpolado
+    # Movimiento interpolado
     for i in range(PASOS):
         frac = (i + 1) / PASOS
         dx = DESPLAZAMIENTO_MM * frac
