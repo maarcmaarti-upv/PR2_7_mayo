@@ -1,5 +1,7 @@
 from robodk import robolink
 
+# Este programa resetea los paqutes a la posición inicial
+
 RDK = robolink.Robolink()
 
 
