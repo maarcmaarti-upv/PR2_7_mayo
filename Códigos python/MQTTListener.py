@@ -1,19 +1,22 @@
 import paho.mqtt.client as mqtt
 import RobotController as rc
 
+# Configuracion MQTT
 broker = "mqtt.dsic.upv.es"
 port = 1883
 user = "giirob"
 passwd = "UPV2024"
 
-#sirve para los topics derivados de este
+# Sirve para los topics derivados de este
 topic_commands = "pr2/sahuquillers/#"
 
+# Cuando reciba mensaje
 def on_message(mqttc, obj, msg):
     payload = msg.payload.decode("utf-8")
     topic = msg.topic
     rc.handle_message(mqttc, topic, payload)
 
+# Conexion a MQTT
 mqttc = mqtt.Client(mqtt.CallbackAPIVersion.VERSION2)
 mqttc.on_message = on_message
 
