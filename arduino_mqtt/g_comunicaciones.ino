@@ -52,7 +52,7 @@ void alRecibirMensajePorTopic(char* topic, String incomingMessage) {
   }
 
 }
-
+// Función de enviar mensaje a topic
 void enviarMensajePorTopic(const char* topic, String outgoingMessage) {
 
   mqtt_publish(topic, outgoingMessage.c_str());
